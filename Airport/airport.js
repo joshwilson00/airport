@@ -7,6 +7,9 @@ class Airport {
     }
 
     land(plane){
+        if (plane.destination != this.name) {
+            throw new Error(`This planes destination is not: ${this.name}!`);
+        }
         console.log(`Plane ${plane.name} landing at: ${plane.destination} from: ${plane.currentLocation}`);
         //Update the planes current location.
         plane.currentLocation = this.name;
@@ -14,6 +17,7 @@ class Airport {
         this.addPlane(plane);
         const rand = (Math.floor(Math.random() * this.constructor.airports.length));
         plane.destination = this.constructor.airports[rand].name;
+
     }
     takeOff(plane){
         console.log(`Plane ${plane.name} departing from ${plane.currentLocation} to: ${plane.destination}`);

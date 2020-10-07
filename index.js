@@ -26,3 +26,11 @@ plane1.board(josh);
 
 egnm.land(plane1);
 egnm.takeOff(plane2);
+
+// while(true){
+//     Airport.airports.forEach(airport=>{
+//         airport.currrentPlanes.forEach(plane=>{
+//             airport.takeoff(plane);
+//         });
+//     });
+// }
