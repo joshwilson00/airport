@@ -1,15 +1,15 @@
 {
-  "name": "airport",
+  "name": "Bag",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "bad.test.js",
   "scripts": {
     "test": "jest --watchAll"
   },
+  "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "jest": "^26.5.2",
-    "nodemon": "^2.0.4"
+    "jest": "^26.5.2"
   }
 }
