@@ -1,5 +1,6 @@
 class Plane {
-    constructor(destination, maxPAX, currentLocation){
+    constructor(destination, maxPAX, currentLocation, name=(Math.floor((Math.random() * 999) + 1))){
+        this.name = name;
         this.destination = destination.name;
         this.maxPAX = maxPAX;
         this.currentLocation = currentLocation.name;

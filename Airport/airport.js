@@ -7,7 +7,7 @@ class Airport {
     }
 
     land(plane){
-        console.log(`Plane landing from: ${plane.currentLocation}`);
+        console.log(`Plane ${plane.name} landing at: ${plane.destination} from: ${plane.currentLocation}`);
         //Update the planes current location.
         plane.currentLocation = this.name;
         //Add the plane to the array of planes at this airport.
@@ -16,7 +16,7 @@ class Airport {
         plane.destination = this.constructor.airports[rand].name;
     }
     takeOff(plane){
-        console.log(`Plane departing to: ${plane.destination}`);
+        console.log(`Plane ${plane.name} departing from ${plane.currentLocation} to: ${plane.destination}`);
         const loc = this.currentPlanes.indexOf(plane);
         this.currentPlanes.splice(this.currentPlanes.indexOf(plane), 1);
         // console.log(this.constructor.airports.indexOf(plane.currentLocation));
