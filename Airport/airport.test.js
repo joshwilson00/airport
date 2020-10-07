@@ -2,7 +2,6 @@ const Airport = require('./airport');
 const Plane = require('../Plane/plane');
 const Person = require('../Person/person');
 const Bag = require('../Bag/bag');
-const { expect } = require('@jest/globals');
 const josh = new Person('Josh');
 describe('Airport', ()=>{
     test('should have a name.', () => {
@@ -42,5 +41,8 @@ describe('Take off and landing', ()=>{
     test('should not be able to land a plane with a different destination', () => {
         expect(()=>lepa.land(plane1)).toThrowError('This planes destination is not: LEPA!');
     })
-    
+    // test('should not be able to depart a plane from an airport that is not the origin.', () => {
+    //     console.log(plane1.currentLocation);
+    //     expect(()=>lepa.takeOff(plane)).toThrowError('This plane is currently at: EGNM!');
+    // })   
 })

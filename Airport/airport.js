@@ -20,10 +20,12 @@ class Airport {
 
     }
     takeOff(plane){
+        if (plane.currentLocation != this.name) {
+            throw new Error(`This plane is currently at: ${plane.currentLocation}!`);
+        }
         console.log(`Plane ${plane.name} departing from ${plane.currentLocation} to: ${plane.destination}`);
         const loc = this.currentPlanes.indexOf(plane);
         this.currentPlanes.splice(this.currentPlanes.indexOf(plane), 1);
-        // console.log(this.constructor.airports.indexOf(plane.currentLocation));
     }
     addPlane(plane){
         this.currentPlanes.push(plane);
