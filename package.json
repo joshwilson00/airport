@@ -4,7 +4,8 @@
   "description": "",
   "main": "bad.test.js",
   "scripts": {
-    "test": "jest --watchAll"
+    "test": "jest --watchAll",
+    "test:report": "jest --coverage=true"
   },
   "keywords": [],
   "author": "",

@@ -1,3 +1,5 @@
+const Crew = require('../Crew/crew');
+
 class Plane {
     constructor(destination, maxPAX, currentLocation, name=(Math.floor((Math.random() * 999) + 1))){
         this.name = name;
@@ -6,6 +8,7 @@ class Plane {
         this.currentLocation = currentLocation.name;
         this.currentPAX = 0;
         this.passangers = [];
+        this.crew = []
         currentLocation.addPlane(this);
     }
 
@@ -13,10 +16,13 @@ class Plane {
         if (this.currentPAX == this.maxPAX) {
             throw new Error('Plane is full!');
         }
+        if (person instanceof Crew){
+            this.crew.push(person)
+        } else{
+            this.passangers.push(person);
+        }
         this.currentPAX++;
-        this.passangers.push(person);
     }
-
     changeDest(dest){
         this.destination = dest;
     }
