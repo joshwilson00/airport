@@ -29,8 +29,14 @@ lepa.land(plane2);
 console.log(Crew.crossCheck());
 josh.callAttendant();
 
-console.log(egll.getInfo((err, data)=>{
-    if (err) throw new Error(err);
-    console.log('Elevation: ', data.elevation);
-}))
+// console.log(egll.getInfo((err, data)=>{
+//     if (err) throw new Error(err);
+//     console.log('Elevation: ', data.elevation);
+// }))
+
+const logData = async () =>{
+    const data = await egnm.getInfo();
+    console.log("Data: ", data);
+}
+logData();
 console.log(1);
