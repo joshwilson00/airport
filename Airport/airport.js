@@ -61,7 +61,7 @@ class Airport {
     //     })
     // }
 
-    getInfo(){
+    async getInfo(){
         return new Promise((resolve, reject)=>{
             fs.readFile(path.join(__dirname, 'airports.json'), (err, data)=>{
                 if (err) reject(err);
