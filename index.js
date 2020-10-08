@@ -26,5 +26,5 @@ egll.takeOff(plane1);
 egnm.land(plane1);
 egnm.takeOff(plane2);
 lepa.land(plane2);
-console.log(plane2);
+console.log(Crew.crossCheck());
 josh.callAttendant();
