@@ -6,7 +6,7 @@ class Crew extends Person {
         let check = true
         Crew.crew.forEach(crew=>{
             (!(crew instanceof Crew)) ? check = false : check;
-        })
+        });
         if (check) {
             return true;
         }

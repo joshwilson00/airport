@@ -40,5 +40,17 @@ describe('Take off and landing', ()=>{
     test('should not be able to land a plane with a different destination', () => {
         expect(()=>lepa.land(plane1)).toThrowError('This planes destination is not: LEPA!');
     })
+})
 
+
+describe('Async functions', ()=>{
+    test('Airport should have a city', (done) => {
+        egnm.getInfo((err, data)=>{
+            expect(err).toBeNull;
+            console.log(data);
+            expect(data.country).toBe('GB')
+            done();
+        })
+    })
+    
 })

@@ -1,3 +1,7 @@
+const fs = require('fs');
+const path = require('path');
+
+
 class Airport {
     static airports = [];
     constructor(name){
@@ -29,6 +33,19 @@ class Airport {
     }
     addPlane(plane){
         this.currentPlanes.push(plane);
+    }
+
+    getInfo(callback){
+        //read drive.
+        fs.readFile(path.join(__dirname, 'airports.json'), (err, data)=>{
+            if (err) throw new Error(err);
+            //turn the data into JSON object.
+            const res = JSON.parse(String(data));
+            //Find the correct airport.
+            const airport = res.find(({icao}) => icao === this.name);
+            //Now we have all the data, pass it onto the callback function.
+            callback(err, airport);
+        })
     }
 }
 

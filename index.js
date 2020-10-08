@@ -28,4 +28,9 @@ egnm.takeOff(plane2);
 lepa.land(plane2);
 console.log(Crew.crossCheck());
 josh.callAttendant();
-console.log(josh.plane);
+
+console.log(egll.getInfo((err, data)=>{
+    if (err) throw new Error(err);
+    console.log('Elevation: ', data.elevation);
+}))
+console.log(1);
