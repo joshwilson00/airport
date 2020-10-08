@@ -1,6 +1,7 @@
 const Plane = require('./plane');
 const Airport = require('../Airport/airport');
 const Person = require('../Person/person');
+const Crew = require('../Crew/crew');
 const { expect } = require('@jest/globals');
 const josh =  new Person('Josh');
 describe('Plane', ()=>{
@@ -45,5 +46,12 @@ describe('Plane', ()=>{
         const plane = new Plane(egnm, 0, egll);
         expect(()=>{plane.board(josh)}).toThrowError();
     })
+    test('should be able to add a crew member to the plane.', () => {
+        const bob = new Crew('Bob');
+        const plane = new Plane(egnm, 200, egll);
+        plane.board(bob);
+        expect(plane.crew.length).toBe(1);
+    })
+    
     
 })

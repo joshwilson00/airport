@@ -2,7 +2,7 @@ const Person = require('../Person/person');
 
 class Passanger extends Person {
     callAttendant(){
-        console.log('Hello! Can I have some assistance please!');
+        return ('Hello! Can I have some assistance please!');
     }
 }
 

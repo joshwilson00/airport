@@ -14,7 +14,6 @@ class Crew extends Person {
     }
     constructor(name){
         super(name);
-        // Person.call(this.name)
         this.constructor.crew.push(this);
     }
 
