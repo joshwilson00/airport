@@ -21,6 +21,7 @@ class Plane {
         } else{
             this.passangers.push(person);
         }
+        person.addFlight(this.name);
         this.currentPAX++;
     }
     changeDest(dest){

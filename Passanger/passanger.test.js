@@ -9,7 +9,6 @@ describe('Passanger', ()=>{
         expect(josh.bags.length).toBe(0);
     })
     test('should be able to call for assistance', () => {
-        console.log(josh.callAttendant());
         expect(josh.callAttendant()).toBe('Hello! Can I have some assistance please!');
     })
     

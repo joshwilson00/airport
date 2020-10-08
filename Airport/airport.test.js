@@ -11,8 +11,7 @@ const plane2 = new Plane(lepa, 20, egnm);
 describe('Airport', ()=>{
 
     test('should have a name.', () => {
-        const airport = new Airport('EGNM');
-        expect(airport.name).toBe('EGNM');
+        expect(egnm.name).toBe('EGNM');
     })
     test('should update planes current location upon landing.', () => {
         const plane = new Plane(egnm, 20, egll);
@@ -21,15 +20,13 @@ describe('Airport', ()=>{
     })
     test('should be able to see the weight of the bagage of a passanger.', () => {
         const bag = new Bag(25);
-        const plane = new Plane(egnm, 20, egll); 
         josh.addBag(bag);
-        plane.board(josh);
-        expect(egll.currentPlanes[2].passangers[0].bags[0].weight).toBe(25);
+        plane1.board(josh);
+        expect(egll.currentPlanes[0].passangers[0].bags[0].weight).toBe(25);
     })
 })
 
 describe('Take off and landing', ()=>{
-
     test('should remove the plane from the airport when it takes off.', () => {
         egnm.takeOff(plane2);
         lepa.land(plane2);
@@ -38,7 +35,6 @@ describe('Take off and landing', ()=>{
         expect(lepa.currentPlanes.length).toBe(1);    
     })
     test('should not be able to depart a plane from an airport that is not the origin.', () => {
-        console.log(plane1);
         expect(()=>lepa.takeOff(plane1)).toThrowError('This plane is currently at: EGLL!');
     })   
     test('should not be able to land a plane with a different destination', () => {

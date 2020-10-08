@@ -28,3 +28,4 @@ egnm.takeOff(plane2);
 lepa.land(plane2);
 console.log(Crew.crossCheck());
 josh.callAttendant();
+console.log(josh.plane);
