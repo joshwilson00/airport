@@ -44,13 +44,29 @@ describe('Take off and landing', ()=>{
 
 
 describe('Async functions', ()=>{
-    test('Airport should have a city', (done) => {
-        egnm.getInfo((err, data)=>{
-            expect(err).toBeNull;
-            console.log(data);
-            expect(data.country).toBe('GB')
-            done();
-        })
+    /*CALLBACK*/
+    // test('Airport should have a city', (done) => {
+    //     egnm.getInfo((err, data)=>{
+    //         expect(err).toBeNull;
+    //         console.log(data);
+    //         expect(data.country).toBe('GB')
+    //         done();
+    //     })
+    // })
+
+    /*PROMISE*/
+    // test('should have a city', () => {
+    //     return egll.getInfo()
+    //     .then(res=>{
+    //         expect(res.icao).toBe('EGLL');
+    //     })
+    //     .catch(err =>{throw new Error(err)});
+    // })
+    
+    test('should have a city', async () => {
+        const airport = await egnm.getInfo();
+        expect(airport.icao).toBe('EGNM');
     })
+    
     
 })

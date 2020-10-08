@@ -1,4 +1,5 @@
 const fs = require('fs');
+//const { readFile } = require('fs/promises');
 const path = require('path');
 
 
@@ -34,19 +35,43 @@ class Airport {
     addPlane(plane){
         this.currentPlanes.push(plane);
     }
+    /*CALLBACK*/
+    // getInfo(callback){
+    //     //read drive.
+    //     fs.readFile(path.join(__dirname, 'airports.json'), (err, data)=>{
+    //         if (err) throw new Error(err);
+    //         //turn the data into JSON object.
+    //         const res = JSON.parse(String(data));
+    //         //Find the correct airport.
+    //         const airport = res.find(({icao}) => icao === this.name);
+    //         //Now we have all the data, pass it onto the callback function.
+    //         callback(err, airport);
+    //     })
+    // }
 
-    getInfo(callback){
-        //read drive.
-        fs.readFile(path.join(__dirname, 'airports.json'), (err, data)=>{
-            if (err) throw new Error(err);
-            //turn the data into JSON object.
-            const res = JSON.parse(String(data));
-            //Find the correct airport.
-            const airport = res.find(({icao}) => icao === this.name);
-            //Now we have all the data, pass it onto the callback function.
-            callback(err, airport);
+    /*PROMISE*/
+    // getInfo(){
+    //     return new Promise((resolve, reject) =>{
+    //         fs.readFile(path.join(__dirname, 'airports.json'), (err, data)=>{
+    //             if (err) reject(err);
+    //             const res = JSON.parse(String(data));
+    //             const airport = res.find(({icao})=>icao === this.name);
+    //             resolve(airport);
+    //         })
+    //     })
+    // }
+
+    getInfo(){
+        return new Promise((resolve, reject)=>{
+            fs.readFile(path.join(__dirname, 'airports.json'), (err, data)=>{
+                if (err) reject(err);
+                const res = JSON.parse(String(data));
+                const airport = res.find(({icao}) => icao == this.name);
+                resolve(airport);
+            })
         })
     }
 }
+
 
 module.exports = Airport;
