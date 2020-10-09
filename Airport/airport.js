@@ -1,5 +1,4 @@
-const fs = require('fs');
-//const { readFile } = require('fs/promises');
+const fs = require('fs').promises;
 const path = require('path');
 
 
@@ -61,15 +60,22 @@ class Airport {
     //     })
     // }
 
+    // async getInfo(){
+    //     return new Promise((resolve, reject)=>{
+    //         fs.readFile(path.join(__dirname, 'airports.json'), (err, data)=>{
+    //             if (err) reject(err);
+    //             const res = JSON.parse(String(data));
+    //             const airport = res.find(({icao}) => icao == this.name);
+    //             resolve(airport);
+    //         })
+    //     })
+    // }
+
     async getInfo(){
-        return new Promise((resolve, reject)=>{
-            fs.readFile(path.join(__dirname, 'airports.json'), (err, data)=>{
-                if (err) reject(err);
-                const res = JSON.parse(String(data));
-                const airport = res.find(({icao}) => icao == this.name);
-                resolve(airport);
-            })
-        })
+        const data = await fs.readFile(path.join(__dirname, 'airports.json'));
+        const info = JSON.parse(String(data));
+        const airport = info.find(({icao}) => icao == this.name);
+        return airport;
     }
 }
 
